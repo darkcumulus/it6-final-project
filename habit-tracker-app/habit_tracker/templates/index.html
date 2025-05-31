@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Habit Tracker</h1>
+
+        <!-- Form to add new habit -->
+        <form action="/add" method="POST" class="add-habit-form">
+            <input type="text" name="name" placeholder="Enter new habit" required>
+            <button type="submit">Add Habit</button>
+        </form>
+
+        <!-- Display all habits -->
+        <div class="habits-list">
+            {% for habit in habits %}
+                <div class="habit-item">
+                    <p><strong>{{ habit[1] }}</strong> (Started on: {{ habit[2] }})</p>
+                    <p>Current Streak: {{ habit[3] }} days</p>
+                    <form action="/update_streak/{{ habit[0] }}" method="POST" style="display:inline;">
+                        <button type="submit">Mark as Done</button>
+                    </form>
+                    <form action="/delete/{{ habit[0] }}" method="POST" style="display:inline;">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
