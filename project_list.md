@@ -17,4 +17,5 @@
 [Guessing_game](https://github.com/helloflask/guess) -clone into [Jan Wilhelm R. Celedonio's Repository](https://github.com/mais16/guess/tree/ipt) [block 2]  
 [Contact-Book-Flask-App](https://github.com/RF-Fahad-Islam/Contact-Book-Flask-App.git) - cloned into [Kleya Roes M. Cabatu's Repository](https://github.com/kleyacabatu/Contact-Book-Flask-App.git) - [block 2]  
 [Flask-Based-Note-Taking-Web-Application](https://github.com/Aparnakannan11/Flask-Based-Note-Taking-Web-Application) - cloned into [Mycka Valoroso's Repository](https://github.com/mycka4/Flask-Based-Note-Taking-Web-Application) - [Block 2]  
-[URL-Shortener](https://github.com/ezhil56x/URL-Shortener.git) - cloned into [Frilyn Alicos' Repository](https://github.com/fraaays/URL-Shortener.git) - [block 2]  
+[URL-Shortener](https://github.com/ezhil56x/URL-Shortener.git) - cloned into [Frilyn Alicos' Repository](https://github.com/fraaays/URL-Shortener.git) - [block 2]
+[Flask-Photo-Gallery] (https://github.com/NexieMadia23/photo-gallery-python-flask/tree/main cloned into [Norelyn Madia's Repository] - [Block 2]
