@@ -18,3 +18,4 @@
 [Contact-Book-Flask-App](https://github.com/RF-Fahad-Islam/Contact-Book-Flask-App.git) - cloned into [Kleya Roes M. Cabatu's Repository](https://github.com/kleyacabatu/Contact-Book-Flask-App.git) - [block 2]  
 [Flask-Based-Note-Taking-Web-Application](https://github.com/Aparnakannan11/Flask-Based-Note-Taking-Web-Application) - cloned into [Mycka Valoroso's Repository](https://github.com/mycka4/Flask-Based-Note-Taking-Web-Application) - [Block 2]  
 [URL-Shortener](https://github.com/ezhil56x/URL-Shortener.git) - cloned into [Frilyn Alicos' Repository](https://github.com/fraaays/URL-Shortener.git) - [block 2]  
+[Flask_To-Do Web App w/full REST API Feature](https://github.com/patrickloeber/flask-todo.git) - cloned into [Juliet Lou Tumalac's Repository](https://github.com/jiyu0903/flask_todo.git) - [IT6 Block 3]
