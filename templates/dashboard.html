@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL Shortener Dashboard</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f0f2f5;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      margin-right: 0.3rem;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      padding: 0.3rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .export-btn {
+      display: block;
+      margin: 1rem auto;
+      background-color: #28a745;
+    }
+
+    img.qr {
+      width: 60px;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <a href="{{ url_for('index') }}">← Back to Home</a>
+  <h1>🔗 URL Shortener Dashboard</h1>
+
+  <button class="export-btn" onclick="window.location.href='/export/pdf'">Export to PDF</button>
+
+  <table id="urlTable">
+    <thead>
+      <tr>
+        <th>Original URL</th>
+        <th>Short URL</th>
+        <th>QR Code</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for url in urls %}
+      <tr data-id="{{ url['id'] }}">
+        <td class="original-url">{{ url['longurl'] }}</td>
+        <td>
+          <a href="{{ host }}{{ url['shorturl'] }}" target="_blank">{{ host }}{{ url['shorturl'] }}</a>
+        </td>
+        <td>
+          <a href="/qr/{{ url['shorturl'] }}" target="_blank">
+            <img src="/qr/{{ url['shorturl'] }}" alt="QR Code" class="qr" />
+          </a>
+        </td>
+        <td>
+          <button class="editBtn">Edit</button>
+          <button class="deleteBtn">Delete</button>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="4" style="text-align:center; color:#777;">No URLs found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const table = document.getElementById('urlTable');
+
+      table.addEventListener('click', async (e) => {
+        const target = e.target;
+        const row = target.closest('tr');
+        if (!row) return;
+        const id = row.dataset.id;
+
+        if (target.classList.contains('editBtn')) {
+          const originalCell = row.querySelector('.original-url');
+
+          if (target.textContent === 'Edit') {
+            const currentUrl = originalCell.textContent;
+            originalCell.innerHTML = `<input type="text" value="${currentUrl}"/>`;
+            target.textContent = 'Save';
+          } else {
+            const input = originalCell.querySelector('input');
+            const newUrl = input.value.trim();
+
+            if (!newUrl) {
+              alert('URL cannot be empty.');
+              return;
+            }
+
+            try {
+              const response = await fetch(`/edit/${id}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ original_url: newUrl })
+              });
+              const data = await response.json();
+              if (data.success) {
+                originalCell.textContent = newUrl;
+                target.textContent = 'Edit';
+              } else {
+                alert(data.error || 'Failed to update URL');
+              }
+            } catch (err) {
+              alert('Error updating URL');
+            }
+          }
+        }
+
+        if (target.classList.contains('deleteBtn')) {
+          if (confirm('Are you sure you want to delete this URL?')) {
+            try {
+              const response = await fetch(`/delete/${id}`, {
+                method: 'POST'
+              });
+              const data = await response.json();
+              if (data.success) {
+                row.remove();
+              } else {
+                alert('Failed to delete URL');
+              }
+            } catch (err) {
+              alert('Error deleting URL');
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
