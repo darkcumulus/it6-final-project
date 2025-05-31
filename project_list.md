@@ -5,7 +5,7 @@
 [Flask-Weather-App](https://github.com/jkaethee/Flask-Weather-App) - cloned into [Roy Cyril Dosado's Repository](https://github.com/rcdosado/Flask-Weather-App) - [block 1]
 
 
-[URL-Short](https://github.com/ezhil56x/URL-Shortener) - cloned into [TAPAYA-LANCESTHUR KEITH](https://github.com/Eizo491/it6-final-project/tree/feature/tapaya-final) - [BLOCK 1]
+[URL-Short](https://github.com/ezhil56x/URL-Shortener) - cloned into [TAPAYA-LANCESTHUR- KEITH](https://github.com/Eizo491/it6-final-project/tree/feature/tapaya-final) - [BLOCK 1]
 
 
 
