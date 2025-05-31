@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Create New Author</h1>
+<form id="authorForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br><br>
+    <label for="bio">Bio:</label><br>
+    <textarea id="bio" rows="4" cols="50"></textarea><br><br>
+    <button type="submit">Add Author</button>
+</form>
+
+<h2>Authors List</h2>
+<ul id="authorList"></ul>
+
+<script>
+    document.getElementById('authorForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const bio = document.getElementById('bio').value;
+
+        const response = await fetch('/authors', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, bio })
+        });
+
+        if (response.ok) {
+            alert('Author added!');
+            document.getElementById('authorForm').reset();
+            loadAuthors();
+        } else {
+            alert('Error adding author');
+        }
+    });
+
+    async function loadAuthors() {
+        const response = await fetch('/authors');
+        const authors = await response.json();
+        const list = document.getElementById('authorList');
+        list.innerHTML = '';
+        authors.forEach(author => {
+            const item = document.createElement('li');
+            item.textContent = `${author.name}: ${author.bio || 'No bio'}`;
+            list.appendChild(item);
+        });
+    }
+
+    loadAuthors();
+</script>
+{% endblock %}
