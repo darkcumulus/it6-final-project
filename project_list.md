@@ -67,4 +67,4 @@
 [Employee](https://github.com/USSEndeavour/Employee.git) - cloned into [Mark Rian Fernandez's Repository](https://github.com/markrianfernandez/Employee-List.git) - [block 3]  
 [Puppy-Adaption-PythonFlask](https://github.com/grv231/Puppy-adoption-PythonFlask.git) - clone into [Diether L. Abunto's Repository](https://github.com/D13TH3/Puppy-adoption-PythonFlask.git) - [Block3]  
 [School-portal-prototype](https://github.com/Anquillano-oo9/School-portal-prototype.git) - cloned into [John Erwin Anquillano's (listeroo9) Repository](https://github.com/listeroo9/School-portal-prototype/tree/my-new-branch) - [block 2]
-
+[02_Name_Card_website](https://github.com/artursniegowski/Python_Flask_Projects) - cloned into [Jun Mark Brilliantes's Rrepository](https://github.com/valiant-11/Python_Flask_Projects#) - [Block 3]  
