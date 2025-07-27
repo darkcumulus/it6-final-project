@@ -66,6 +66,6 @@
 [full-stack-Flask-Notes](https://github.com/SHOCKWAVE07/fullStackFlaskNotes.git) - cloned into [Edbert S. Isabelo's Repository](https://github.com/niczed/fullStackFlaskNotes.git) -[Block 3]  
 [Employee](https://github.com/USSEndeavour/Employee.git) - cloned into [Mark Rian Fernandez's Repository](https://github.com/markrianfernandez/Employee-List.git) - [block 3]  
 [Puppy-Adaption-PythonFlask](https://github.com/grv231/Puppy-adoption-PythonFlask.git) - clone into [Diether L. Abunto's Repository](https://github.com/D13TH3/Puppy-adoption-PythonFlask.git) - [Block3]  
-[School-portal-prototype](https://github.com/Anquillano-oo9/School-portal-prototype.git) - cloned into [John Erwin Anquillano's (listeroo9) Repository](https://github.com/listeroo9/School-portal-prototype/tree/my-new-branch) - [block 2]
-[Notepad To-Do App](https://github.com/udham2511/todo-app) - cloned into [Marife Joy Aguilar's Repository](https://github.com/mjemsski-urs/To-Do-App) - [Block 1]
+[School-portal-prototype](https://github.com/Anquillano-oo9/School-portal-prototype.git) - cloned into [John Erwin Anquillano's (listeroo9) Repository](https://github.com/listeroo9/School-portal-prototype/tree/my-new-branch) - [block 2
+[Notepad To-Do App](https://github.com/udham2511/todo-app.git) - cloned into [Marife Joy Aguilar's Repository](https://github.com/mjemsski-urs/To-Do-App.git) - [Block 1]
 
